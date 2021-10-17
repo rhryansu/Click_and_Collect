@@ -37,23 +37,15 @@ namespace Click_and_Collect.Controllers
             }
             return View(booking);
         }
-
-        
-        // GET: Bookings/Create
-        public ActionResult CreateIndividual()
-        {
-            Booking booking = new Booking();
-            string currentUserId = User.Identity.GetUserId();
-            booking.CustomerId = currentUserId;
-            return View(booking);
-        }
-        
         
         // GET: Bookings/Create
         public ActionResult Create()
         {
+            Booking booking = new Booking();
+            string currentUserId = User.Identity.GetUserId();
+            booking.CustomerId = currentUserId;
             ViewBag.RetailerId = new SelectList(db.Retailers, "Id", "Name");
-            return View();
+            return View(booking);
         }
 
         // POST: Bookings/Create
