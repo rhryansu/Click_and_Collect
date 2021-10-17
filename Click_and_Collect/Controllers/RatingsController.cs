@@ -7,6 +7,7 @@ using System.Net;
 using System.Web;
 using System.Web.Mvc;
 using Click_and_Collect.Models;
+using Microsoft.AspNet.Identity;
 
 namespace Click_and_Collect.Controllers
 {
@@ -20,6 +21,7 @@ namespace Click_and_Collect.Controllers
         {
             var ratings = db.Ratings.Include(r => r.Booking);
             return View(ratings.ToList());
+
         }
 
         // GET: Ratings/Details/5
@@ -40,7 +42,8 @@ namespace Click_and_Collect.Controllers
         // GET: Ratings/Create
         public ActionResult Create()
         {
-            ViewBag.BookingId = new SelectList(db.Bookings, "Id", "Description");
+            string currentUserId = User.Identity.GetUserId();
+            ViewBag.BookingId = new SelectList(db.Bookings.Where(m => m.CustomerId == currentUserId), "Id", "Description");
             return View();
         }
 
@@ -74,7 +77,8 @@ namespace Click_and_Collect.Controllers
             {
                 return HttpNotFound();
             }
-            ViewBag.BookingId = new SelectList(db.Bookings, "Id", "Description", rating.BookingId);
+            string currentUserId = User.Identity.GetUserId();
+            ViewBag.BookingId = new SelectList(db.Bookings.Where(m => m.CustomerId == currentUserId), "Id", "Description", rating.BookingId);
             return View(rating);
         }
 
