@@ -58,11 +58,11 @@ namespace Click_and_Collect
             //   appId: "",
             //   appSecret: "");
 
-            //app.UseGoogleAuthentication(new GoogleOAuth2AuthenticationOptions()
-            //{
-            //    ClientId = "",
-            //    ClientSecret = ""
-            //});
+            app.UseGoogleAuthentication(new GoogleOAuth2AuthenticationOptions()
+            {
+                ClientId = "100710322869-0lk9flbcjbm9roqjbo65380i5aq4i69c.apps.googleusercontent.com",
+                ClientSecret = "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"
+            });
         }
     }
 }

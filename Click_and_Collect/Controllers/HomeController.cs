@@ -6,6 +6,7 @@ using System.Web.Mvc;
 
 namespace Click_and_Collect.Controllers
 {
+    [RequireHttps]
     public class HomeController : Controller
     {
         public ActionResult Index()

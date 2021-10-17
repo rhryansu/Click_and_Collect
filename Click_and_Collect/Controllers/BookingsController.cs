@@ -20,7 +20,9 @@ namespace Click_and_Collect.Controllers
         public ActionResult Index()
         {
             var bookings = db.Bookings.Include(b => b.Retailer);
-            return View(bookings.ToList());
+            //return View(bookings.ToList());
+            string currentUserId = User.Identity.GetUserId();
+            return View(db.Bookings.Where(m=>m.CustomerId == currentUserId).ToList());
         }
 
         // GET: Bookings/Details/5
