@@ -21,6 +21,7 @@ namespace Click_and_Collect.Controllers
             return View(db.Retailers.ToList());
         }
 
+        [AllowAnonymous]
         // GET: Retailers/Details/5
         public ActionResult Details(int? id)
         {
