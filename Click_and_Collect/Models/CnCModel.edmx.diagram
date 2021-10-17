@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="670c9ac8bc6a4caf9725bde8b2e50eee" Name="Diagram1" >
+        <EntityTypeShape EntityType="CnCModel.Booking" Width="1.5" PointX="8.625" PointY="3.625" />
+        <EntityTypeShape EntityType="CnCModel.Rating" Width="1.5" PointX="12.125" PointY="4.75" />
+        <EntityTypeShape EntityType="CnCModel.Retailer" Width="1.5" PointX="4.5" PointY="5.5" />
+        <AssociationConnector Association="CnCModel.RetailerBooking" />
+        <AssociationConnector Association="CnCModel.BookingRating" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>
