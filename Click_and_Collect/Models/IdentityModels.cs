@@ -29,5 +29,11 @@ namespace Click_and_Collect.Models
         {
             return new ApplicationDbContext();
         }
+
+        public System.Data.Entity.DbSet<Click_and_Collect.Models.Rating> Ratings { get; set; }
+
+        public System.Data.Entity.DbSet<Click_and_Collect.Models.Booking> Bookings { get; set; }
+
+        public System.Data.Entity.DbSet<Click_and_Collect.Models.Retailer> Retailers { get; set; }
     }
 }
