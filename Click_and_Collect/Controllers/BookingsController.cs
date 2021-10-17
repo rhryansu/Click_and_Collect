@@ -7,6 +7,7 @@ using System.Net;
 using System.Web;
 using System.Web.Mvc;
 using Click_and_Collect.Models;
+using Click_and_Collect.Utils;
 using Microsoft.AspNet.Identity;
 
 namespace Click_and_Collect.Controllers
@@ -83,7 +84,40 @@ namespace Click_and_Collect.Controllers
             ViewBag.RetailerId = new SelectList(db.Retailers, "Id", "Name", booking.RetailerId);
             return View(booking);
         }
+        // GET: SendEmail
+        public ActionResult Save()
+        {
+            return View(new SendEmailViewModel());
+        }
 
+        [HttpPost]
+        public ActionResult Save(SendEmailViewModel model)
+        {
+            if (ModelState.IsValid)
+            {
+                try
+                {
+                    String toEmail = model.ToEmail;
+                    String subject = model.Subject;
+                    String contents = model.Contents;
+
+                    EmailSender es = new EmailSender();
+                    es.Send(toEmail, subject, contents);
+
+                    ViewBag.Result = "Email has been sent.";
+
+                    ModelState.Clear();
+
+                    return View(new SendEmailViewModel());
+                }
+                catch
+                {
+                    return View();
+                }
+            }
+
+            return View();
+        }
         // POST: Bookings/Edit/5
         // To protect from overposting attacks, enable the specific properties you want to bind to, for 
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
