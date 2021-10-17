@@ -10,6 +10,7 @@ using Click_and_Collect.Models;
 
 namespace Click_and_Collect.Controllers
 {
+    [Authorize]
     public class RatingsController : Controller
     {
         private ApplicationDbContext db = new ApplicationDbContext();

@@ -26,11 +26,6 @@
                     <li>@Html.ActionLink("Contact", "Contact", "Home")</li>
                     <li>@Html.ActionLink("Bookings", "Index", "Bookings")</li>
                     <li>@Html.ActionLink("Retailers", "Index", "Retailers")</li>
-
-                    @if (User.IsInRole("Customer"))
-                    {
-                        <li>@Html.ActionLink("Family Memebers", "Index", "Customers")</li>
-                    }
                 </ul>
                 @Html.Partial("_LoginPartial")
             </div>

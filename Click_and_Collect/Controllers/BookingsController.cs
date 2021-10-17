@@ -7,9 +7,11 @@ using System.Net;
 using System.Web;
 using System.Web.Mvc;
 using Click_and_Collect.Models;
+using Microsoft.AspNet.Identity;
 
 namespace Click_and_Collect.Controllers
 {
+    [Authorize]
     public class BookingsController : Controller
     {
         private ApplicationDbContext db = new ApplicationDbContext();
@@ -36,6 +38,17 @@ namespace Click_and_Collect.Controllers
             return View(booking);
         }
 
+        
+        // GET: Bookings/Create
+        public ActionResult CreateIndividual()
+        {
+            Booking booking = new Booking();
+            string currentUserId = User.Identity.GetUserId();
+            booking.CustomerId = currentUserId;
+            return View(booking);
+        }
+        
+        
         // GET: Bookings/Create
         public ActionResult Create()
         {

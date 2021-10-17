@@ -10,10 +10,11 @@ using Click_and_Collect.Models;
 
 namespace Click_and_Collect.Controllers
 {
+    [Authorize]
     public class RetailersController : Controller
     {
         private ApplicationDbContext db = new ApplicationDbContext();
-
+        [AllowAnonymous]
         // GET: Retailers
         public ActionResult Index()
         {
@@ -34,7 +35,7 @@ namespace Click_and_Collect.Controllers
             }
             return View(retailer);
         }
-
+        [Authorize(Roles = "Admin")]
         // GET: Retailers/Create
         public ActionResult Create()
         {
@@ -57,7 +58,7 @@ namespace Click_and_Collect.Controllers
 
             return View(retailer);
         }
-
+        [Authorize(Roles = "Admin")]
         // GET: Retailers/Edit/5
         public ActionResult Edit(int? id)
         {
@@ -88,7 +89,7 @@ namespace Click_and_Collect.Controllers
             }
             return View(retailer);
         }
-
+        [Authorize(Roles = "Admin")]
         // GET: Retailers/Delete/5
         public ActionResult Delete(int? id)
         {
