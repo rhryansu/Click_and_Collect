@@ -1,10 +1,4 @@
-﻿using Click_and_Collect.Models;
-using Click_and_Collect.Utils;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
-using System.Web.Mvc;
+﻿using System.Web.Mvc;
 
 namespace Click_and_Collect.Controllers
 {
